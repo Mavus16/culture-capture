@@ -41,11 +41,10 @@ export default function Home() {
     setCardFlipped(true);
   }, []);
 
-  // Show terminal from UPLOADING onwards
   const showTerminal = state === 'UPLOADING' || state === 'NEURAL_SCAN' || state === 'AI_ASKING' || state === 'REVEAL';
 
   return (
-    <main className="flex h-screen w-full bg-butter overflow-hidden font-sans">
+    <main className="flex flex-col lg:flex-row min-h-screen lg:h-screen w-full bg-butter overflow-x-hidden overflow-y-auto lg:overflow-hidden font-sans pb-10 lg:pb-0">
       {/* Background Decor */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-rose/5 blur-[150px]" />
@@ -53,7 +52,7 @@ export default function Home() {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col items-center justify-center p-8 relative z-10">
+      <div className="flex-1 flex flex-col items-center justify-center p-4 pt-20 lg:p-8 relative z-10">
         <AnimatePresence>
           {state === 'IDLE' && (
             <motion.div
@@ -61,28 +60,40 @@ export default function Home() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="absolute top-12 text-center"
+              className="absolute top-6 lg:top-12 text-center px-4"
             >
-              <h1 className="text-3xl font-serif text-espresso mb-2 tracking-tight">Culture Capture</h1>
-              <p className="text-espresso/60 text-xs font-mono uppercase tracking-widest">Neural Design Engine</p>
+              <h1 className="text-2xl lg:text-3xl font-serif text-espresso mb-2 tracking-tight">Culture Capture</h1>
+              <p className="text-espresso/60 text-[10px] lg:text-xs font-mono uppercase tracking-widest">Neural Design Engine</p>
             </motion.div>
           )}
         </AnimatePresence>
 
-        <GreetingCard
-          state={state}
-          onDropzoneClick={handleDropzoneClick}
-          onMusicPillShow={handleMusicPillShow}
-          onCardFlip={handleCardFlip}
-        />
+        {/* Card wrapper — scales down on mobile to fit within 90vw */}
+        <div className="scale-[0.65] sm:scale-75 lg:scale-100 origin-center">
+          <GreetingCard
+            state={state}
+            onDropzoneClick={handleDropzoneClick}
+            onMusicPillShow={handleMusicPillShow}
+            onCardFlip={handleCardFlip}
+          />
+        </div>
       </div>
 
-      {/* Intelligence Bridge Sidebar */}
+      {/* Mobile Terminal Logs — inline between card and sidebar */}
+      {showTerminal && (
+        <DynamicTerminal
+          state={state}
+          musicPillVisible={musicPillVisible}
+          cardFlipped={cardFlipped}
+        />
+      )}
+
+      {/* Intelligence Bridge Sidebar — below terminal on mobile, right side on desktop */}
       <motion.div
-        initial={{ x: 320 }}
-        animate={{ x: 0 }}
+        initial={{ x: 0, y: 100, opacity: 0 }}
+        animate={{ x: 0, y: 0, opacity: 1 }}
         transition={{ type: 'spring', damping: 30, stiffness: 200, delay: 0.2 }}
-        className="h-full z-20"
+        className="w-full lg:w-auto lg:h-full z-50 shrink-0"
       >
         <ChatSidebar
           state={state}
@@ -97,14 +108,6 @@ export default function Home() {
         onClose={() => setState('IDLE')}
         onSelectImage={handleSelectImage}
       />
-
-      {showTerminal && (
-        <DynamicTerminal
-          state={state}
-          musicPillVisible={musicPillVisible}
-          cardFlipped={cardFlipped}
-        />
-      )}
     </main>
   );
 }

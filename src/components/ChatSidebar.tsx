@@ -57,7 +57,7 @@ export function ChatSidebar({ state, onScanComplete, onChoiceSelect }: ChatSideb
   };
 
   return (
-    <div className="w-80 h-full bg-[#202020] border-l border-white/5 flex flex-col p-6 shadow-2xl relative z-20 font-mono text-white/90">
+    <div className="w-full lg:w-80 h-auto max-h-[50vh] lg:max-h-none lg:h-full bg-[#202020] border-t lg:border-t-0 lg:border-l border-white/5 flex flex-col p-4 lg:p-6 shadow-2xl relative z-50 font-mono text-white/90">
       <div className="flex items-center gap-2 mb-6 border-b border-white/10 pb-4 shrink-0">
         <Terminal className="text-rose" size={18} />
         <h2 className="font-semibold tracking-wider text-sm">Neural Bridge</h2>
@@ -93,10 +93,10 @@ export function ChatSidebar({ state, onScanComplete, onChoiceSelect }: ChatSideb
           )}
           {activeStep >= 2 && activeStep < 3 && (
             <motion.div key="a1" initial={{ opacity: 0, y: 10, height: 0 }} animate={{ opacity: 1, y: 0, height: 'auto' }} exit={{ opacity: 0, scale: 0.95, height: 0, margin: 0 }} className="flex flex-col gap-2 shrink-0">
-              <button onClick={handleQ1Select} className="w-full py-2.5 px-4 bg-white text-charcoal text-xs font-semibold rounded-full hover:bg-white/90 transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)] animate-pulse outline-none border-2 border-transparent">
+              <button onClick={handleQ1Select} className="w-full min-h-[44px] py-2.5 px-4 bg-white text-charcoal text-xs font-semibold rounded-full hover:bg-white/90 transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)] animate-pulse outline-none border-2 border-transparent">
                 [Espresso Retro]
               </button>
-              <button onClick={handleQ1Select} className="w-full py-2.5 px-4 bg-transparent text-white/50 text-xs font-medium rounded-full border border-white/10 hover:bg-white/5 transition-colors outline-none">
+              <button onClick={handleQ1Select} className="w-full min-h-[44px] py-2.5 px-4 bg-transparent text-white/50 text-xs font-medium rounded-full border border-white/10 hover:bg-white/5 transition-colors outline-none">
                 [Nocturnal Noir]
               </button>
             </motion.div>
@@ -120,13 +120,13 @@ export function ChatSidebar({ state, onScanComplete, onChoiceSelect }: ChatSideb
           )}
           {activeStep >= 4 && activeStep < 5 && (
             <motion.div key="a2" initial={{ opacity: 0, y: 10, height: 0 }} animate={{ opacity: 1, y: 0, height: 'auto' }} exit={{ opacity: 0, scale: 0.95, height: 0, margin: 0 }} className="flex flex-col gap-2 shrink-0">
-              <button onClick={handleQ2Select} className="w-full py-2.5 px-4 bg-white text-charcoal text-xs font-semibold rounded-full hover:bg-white/90 transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)] animate-pulse outline-none border-2 border-transparent">
+              <button onClick={handleQ2Select} className="w-full min-h-[44px] py-2.5 px-4 bg-white text-charcoal text-xs font-semibold rounded-full hover:bg-white/90 transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)] animate-pulse outline-none border-2 border-transparent">
                 [Partner]
               </button>
-              <button onClick={handleQ2Select} className="w-full py-2.5 px-4 bg-transparent text-white/50 text-xs font-medium rounded-full border border-white/10 hover:bg-white/5 transition-colors outline-none">
+              <button onClick={handleQ2Select} className="w-full min-h-[44px] py-2.5 px-4 bg-transparent text-white/50 text-xs font-medium rounded-full border border-white/10 hover:bg-white/5 transition-colors outline-none">
                 [Best Friend]
               </button>
-              <button onClick={handleQ2Select} className="w-full py-2.5 px-4 bg-transparent text-white/50 text-xs font-medium rounded-full border border-white/10 hover:bg-white/5 transition-colors outline-none">
+              <button onClick={handleQ2Select} className="w-full min-h-[44px] py-2.5 px-4 bg-transparent text-white/50 text-xs font-medium rounded-full border border-white/10 hover:bg-white/5 transition-colors outline-none">
                 [Family]
               </button>
             </motion.div>
@@ -150,10 +150,10 @@ export function ChatSidebar({ state, onScanComplete, onChoiceSelect }: ChatSideb
           )}
           {activeStep >= 6 && activeStep < 7 && (
             <motion.div key="a3" initial={{ opacity: 0, y: 10, height: 0 }} animate={{ opacity: 1, y: 0, height: 'auto' }} exit={{ opacity: 0, scale: 0.95, height: 0, margin: 0 }} className="flex flex-col gap-2 shrink-0">
-              <button onClick={handleQ3Select} className="w-full py-2.5 px-4 bg-white text-charcoal text-xs font-semibold rounded-full hover:bg-white/90 transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)] animate-pulse outline-none border-2 border-transparent">
+              <button onClick={handleQ3Select} className="w-full min-h-[44px] py-2.5 px-4 bg-white text-charcoal text-xs font-semibold rounded-full hover:bg-white/90 transition-all shadow-[0_0_15px_rgba(255,255,255,0.2)] animate-pulse outline-none border-2 border-transparent">
                 [Heartfelt]
               </button>
-              <button onClick={handleQ3Select} className="w-full py-2.5 px-4 bg-transparent text-white/50 text-xs font-medium rounded-full border border-white/10 hover:bg-white/5 transition-colors outline-none">
+              <button onClick={handleQ3Select} className="w-full min-h-[44px] py-2.5 px-4 bg-transparent text-white/50 text-xs font-medium rounded-full border border-white/10 hover:bg-white/5 transition-colors outline-none">
                 [Witty]
               </button>
             </motion.div>

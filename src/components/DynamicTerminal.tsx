@@ -75,20 +75,40 @@ export function DynamicTerminal({ state, musicPillVisible, cardFlipped }: Dynami
   if (lines.length === 0) return null;
 
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 w-auto max-w-[700px] pointer-events-none">
-      <div className="flex flex-col items-center gap-1.5">
-        {lines.map((line, idx) => (
-          <motion.div
-            key={line}
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 0.7, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="text-[11px] font-mono text-espresso/70 text-center whitespace-nowrap"
-          >
-            {line}
-          </motion.div>
-        ))}
+    <>
+      {/* Desktop: fixed bottom-center */}
+      <div className="hidden lg:block fixed bottom-8 left-1/2 -translate-x-1/2 z-40 w-auto max-w-[700px] pointer-events-none">
+        <div className="flex flex-col items-center gap-1.5">
+          {lines.map((line) => (
+            <motion.div
+              key={line}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 0.7, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-[11px] font-mono text-espresso/70 text-center whitespace-nowrap"
+            >
+              {line}
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
+
+      {/* Mobile: inline block rendered via portal-style prop */}
+      <div className="lg:hidden w-full h-24 overflow-y-auto z-40 px-4 py-2 shrink-0">
+        <div className="flex flex-col items-center gap-1">
+          {lines.map((line) => (
+            <motion.div
+              key={line}
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 0.7, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-[9px] font-mono text-espresso/70 text-center"
+            >
+              {line}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
