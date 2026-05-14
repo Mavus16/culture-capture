@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-butter: #FFF9F5;
+  --color-espresso: #4B3621;
+  --color-sky: #AEC6CF;
+  --color-rose: #F43F5E;
+  --color-charcoal: #202020;
+
+  --color-background: var(--color-butter);
+  --color-foreground: var(--color-espresso);
+  
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --font-mono: var(--font-jetbrains);
+  --font-caveat: var(--font-caveat);
+}
+
+@utility preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@utility perspective-1500 {
+  perspective: 1500px;
+}
+
+@utility backface-hidden {
+  backface-visibility: hidden;
+}
+
+@utility rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  overflow-x: hidden;
+}
+
+/* Force-kill Next.js indicators and ghost overlays */
+[data-nextjs-static-indicator],
+#__next-prerender-indicator,
+.nextjs-static-indicator,
+.nextjs-toast-errors-parent,
+#nextjs-portal {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
