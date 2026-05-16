@@ -1,5 +1,5 @@
 ## Overview
-HeartStamp Pulse is a boutique AI laboratory with the soul of a high-end fashion editorial. The platform sits on a warm cream canvas rather than the white-or-black default of typical AI tools. Design decisions are made to ensure photography reads as editorial and AI telemetry reads as a printed pull-quote.
+Culture Capture is a boutique AI laboratory with the soul of a high-end fashion editorial. The platform sits on a warm cream canvas rather than the white-or-black default of typical AI tools. Design decisions are made to ensure photography reads as editorial and AI telemetry reads as a printed pull-quote.
 
 ## Colors
 - **Canvas:** `#f9f7f3` (Warm Cream) — The default page background.
